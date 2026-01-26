@@ -38,3 +38,46 @@
 .select option[selected] {
   background-color: #007bff;
 }
+
+.input {
+  display: block;
+  margin: 1em auto;
+  width: 300px;
+  max-width: 70%;
+  padding: 10px;
+  border: #919090 1px solid;
+  outline: none;
+}
+
+.input::-webkit-input-placeholder {
+  color: #919090;
+}
+
+.input::-moz-placeholder {
+  color: #919090;
+}
+
+.input:-ms-input-placeholder {
+  color: #919090;
+}
+
+.input::-ms-input-placeholder {
+  color: #919090;
+}
+
+.input::placeholder {
+  color: #919090;
+}
+
+.button {
+  display: block;
+  margin: 1em auto;
+  width: 300px;
+  max-width: 70%;
+  padding: 10px;
+  background-color: rgb(55, 205, 255);
+  color: white;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
