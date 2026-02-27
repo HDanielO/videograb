@@ -3,17 +3,17 @@
 import Image from "next/image";
 import styles from "./page.module.css";
 import NavBar from "../components/NavBar/Navbar";
-import { FaFacebook, FaTwitter, FaInstagram, FaTiktok } from "react-icons/fa";
+import { FaTwitter, FaInstagram, FaTiktok } from "react-icons/fa";
 import { useState } from "react";
 
 export default function Home() {
-  const [platform, setPlatform] = useState("");
   const [url, setUrl] = useState("");
   const [loading, setLoading] = useState(false);
   const [formats, setFormats] = useState([]);
 
   async function handleGenerate() {
     if (!url) return alert("Paste a video link");
+    if (!platform) return alert("Select a Platform");
 
     setLoading(true);
 
@@ -21,8 +21,12 @@ export default function Home() {
       const res = await fetch("/api/extract", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ url, platform }),
+        body: JSON.stringify({ url }),
       });
+
+      if (!res.ok) {
+        throw new Error("API failed");
+      }
 
       const data = await res.json();
       setFormats(data.formats || []);
@@ -41,25 +45,10 @@ export default function Home() {
           Download Videos From Your Favorite Social Media
         </h2>
         <div className={styles.socialMediaIcons}>
-          <FaFacebook className={styles.icon}></FaFacebook>
           <FaTwitter className={styles.icon}></FaTwitter>
           <FaInstagram className={styles.icon}></FaInstagram>
           <FaTiktok className={styles.icon}></FaTiktok>
         </div>
-
-        <select
-          className={styles.select}
-          value={platform}
-          onChange={(e) => setPlatform(e.target.value)}
-        >
-          <option disabled selected>
-            Select Options
-          </option>
-          <option value="facebook">Facebook</option>
-          <option value="twitter">Twitter</option>
-          <option value="instagram">Instagram</option>
-          <option value="tiktok">TikTok</option>
-        </select>
 
         <input
           type="text"
@@ -90,3 +79,5 @@ export default function Home() {
     </div>
   );
 }
+
+
