@@ -69,7 +69,7 @@ export default function Home() {
           <div className={styles.results}>
             {formats.map((f, i) => (
               <a key={i} href={f.url} target="_blank">
-                Download {f.quality}
+                Click Here To Download
               </a>
             ))}
           </div>

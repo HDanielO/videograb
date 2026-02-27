@@ -1,6 +1,6 @@
 # VideoGrab
 
-VideoGrab is a web application that allows users to download videos from various social media platforms, including Twitter, Facebook, YouTube, Instagram, and TikTok. It supports downloading shorts, reels, and video posts by simply pasting the video link and selecting the desired quality.
+VideoGrab is a web application that allows users to download videos from various social media platforms. Users can simply paste the video link to generate download options without needing to select a specific platform.
 
 ## Tech Stack
 
@@ -14,4 +14,8 @@ VideoGrab is a web application that allows users to download videos from various
 - Download videos from multiple social media platforms
 - Support for shorts, reels, and video posts
 - Multiple quality options, including highest quality
-- Simple interface: select platform, paste link, generate download options
+- Simple interface: paste link and generate download options
+
+## API Used
+
+- **FastSaver API**: Used to fetch video information and download links based on the provided video URL.
