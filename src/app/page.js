@@ -13,7 +13,6 @@ export default function Home() {
 
   async function handleGenerate() {
     if (!url) return alert("Paste a video link");
-    if (!platform) return alert("Select a Platform");
 
     setLoading(true);
 
@@ -79,5 +78,3 @@ export default function Home() {
     </div>
   );
 }
-
-

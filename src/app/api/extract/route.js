@@ -14,23 +14,22 @@ export async function POST(req) {
 
     const data = await response.json();
 
-    if (data.error) {
+    if (!data.download_url) {
       return Response.json(
         { error: "Failed to fetch media info" },
         { status: 500 },
       );
     }
 
-    // FastSaver returns only one download_url
-    const formats = [
-      {
-        quality: "Default",
-        url: data.download_url,
-      },
-    ];
-
     return Response.json({
-      formats,
+      formats: [
+        {
+          quality: "Default",
+          url: `/api/download-proxy?videoUrl=${encodeURIComponent(
+            data.download_url,
+          )}`,
+        },
+      ],
       thumb: data.thumb,
       caption: data.caption,
       platform: data.hosting,
