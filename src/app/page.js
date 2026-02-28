@@ -82,6 +82,19 @@ export default function Home() {
           </div>
         )}
       </main>
+      <footer className={styles.footer}>
+        <span style={{ color: "black", display: "block", textAlign: "center" }}>
+          &copy; 2026.{" "}
+          <a
+            href="https://github.com/HDanielO"
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{ color: "black", textDecoration: "underline" }}
+          >
+            Made By Hameed Daniel
+          </a>
+        </span>
+      </footer>
     </div>
   );
 }

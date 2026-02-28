@@ -5,7 +5,7 @@ const NavBar = () => {
   return (
     <div className={styles.navbar}>
       <div className={styles.logo}>VIDEOGRAB</div>
-      <GiHamburgerMenu className={styles.menu} />
+      {/* <GiHamburgerMenu className={styles.menu} /> */}
     </div>
   );
 };
