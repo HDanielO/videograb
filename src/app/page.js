@@ -69,7 +69,7 @@ export default function Home() {
           onClick={handleGenerate}
           disabled={loading}
         >
-          {loading ? "LOADING..." : "GENERATE DOWNLOAD OPTIONS"}
+          {loading ? "LOADING..." : "GENERATE DOWNLOAD LINK"}
         </button>
 
         {formats.length > 0 && (
