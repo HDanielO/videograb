@@ -16,8 +16,8 @@ export async function GET(req) {
 
   return new Response(videoBuffer, {
     headers: {
-      "Content-Type": "video/mp4",
-      "Content-Disposition": "attachment; filename=video.mp4",
+      "Content-Type":
+        response.headers.get("content-type") || "application/octet-stream",
     },
   });
 }

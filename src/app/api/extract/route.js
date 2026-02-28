@@ -14,6 +14,8 @@ export async function POST(req) {
 
     const data = await response.json();
 
+    // console.log(data);
+
     if (!data.download_url) {
       return Response.json(
         { error: "Failed to fetch media info" },

@@ -28,6 +28,13 @@ export default function Home() {
       }
 
       const data = await res.json();
+
+      if (!res.ok) {
+        alert(data.error || "Something went wrong");
+        setLoading(false);
+        return;
+      }
+
       setFormats(data.formats || []);
     } catch (err) {
       alert("Failed to fetch video info");
@@ -68,7 +75,7 @@ export default function Home() {
         {formats.length > 0 && (
           <div className={styles.results}>
             {formats.map((f, i) => (
-              <a key={i} href={f.url} target="_blank">
+              <a key={i} href={f.url} target="_blank" rel="noopener noreferrer">
                 Click Here To Download
               </a>
             ))}
